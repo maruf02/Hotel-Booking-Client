@@ -43,11 +43,11 @@ const AddRoomCategory = () => {
             muted
             loop
             playsInline
-            className="w-full h-full  absolute object-cover"
+            className="w-full h-[300%] md:h-[150%] lg:h-full absolute object-cover"
           ></video>
         </div>
-        <div className="absolute top-0 left-0 w-full h-full bg-black opacity-80"></div>
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-1">
+        <div className="absolute top-0 left-0 w-full h-[300%] md:h-[150%] lg:h-full bg-black opacity-80"></div>
+        <div className="absolute top-[150%] md:top-[80%] lg:top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-1">
           <h1 className="text-xl lg:text-5xl font-bold mb-5 text-[#00ffcc] uppercase pt-5">
             Add New Room Category Here
           </h1>
@@ -100,8 +100,8 @@ const AddRoomCategory = () => {
               </div>
 
               <div className="form-control mt-6 pb-10">
-                <button className="btn btn-primary text-2xl ">
-                  ADD Room Category
+                <button className="btn btn-primary text-lg md:text-xl lg:text-2xl ">
+                  s ADD Room Category
                 </button>
               </div>
             </form>

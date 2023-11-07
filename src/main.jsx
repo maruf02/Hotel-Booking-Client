@@ -8,6 +8,7 @@ import Homepage from "./Components/Pages/HomePage/Homepage";
 import AddRoomCategory from "./Components/Pages/AddRoomCategory/AddRoomCategory";
 import ViewRoomCategory from "./Components/Pages/ViewRoomCategory/ViewRoomCategory";
 import AddCategoryWiseRoom from "./Components/Pages/AddCategoryWiseRoom/AddCategoryWiseRoom";
+import SeparateCategoryRoom from "./Components/Pages/SeparateCategoryRoom/SeparateCategoryRoom";
 
 const router = createBrowserRouter([
   {
@@ -30,6 +31,12 @@ const router = createBrowserRouter([
       {
         path: "/ViewRoomCategory",
         element: <ViewRoomCategory></ViewRoomCategory>,
+      },
+      {
+        path: "/SeparateRooms/:category",
+        element: <SeparateCategoryRoom></SeparateCategoryRoom>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/allRooms/${params.category}`),
       },
     ],
   },
