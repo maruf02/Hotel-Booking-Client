@@ -5,7 +5,9 @@ const NavBar = () => {
   const meneBar = (
     <>
       <li>
-        <a>Item 1</a>
+        <Link>
+          <button>Home</button>
+        </Link>
       </li>
       <li>
         <a>Parent</a>
@@ -69,6 +71,11 @@ const NavBar = () => {
               <li>
                 <Link to="/AddRoomCategory">
                   <button>Add Room Category</button>
+                </Link>
+              </li>
+              <li>
+                <Link to="/AddCategoriesRoom">
+                  <button>Add Categories Room</button>
                 </Link>
               </li>
               <li>

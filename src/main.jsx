@@ -7,6 +7,7 @@ import ErrorPage from "./Components/Pages/ErrorPage/ErrorPage";
 import Homepage from "./Components/Pages/HomePage/Homepage";
 import AddRoomCategory from "./Components/Pages/AddRoomCategory/AddRoomCategory";
 import ViewRoomCategory from "./Components/Pages/ViewRoomCategory/ViewRoomCategory";
+import AddCategoryWiseRoom from "./Components/Pages/AddCategoryWiseRoom/AddCategoryWiseRoom";
 
 const router = createBrowserRouter([
   {
@@ -21,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "/AddRoomCategory",
         element: <AddRoomCategory></AddRoomCategory>,
+      },
+      {
+        path: "/AddCategoriesRoom",
+        element: <AddCategoryWiseRoom></AddCategoryWiseRoom>,
       },
       {
         path: "/ViewRoomCategory",
