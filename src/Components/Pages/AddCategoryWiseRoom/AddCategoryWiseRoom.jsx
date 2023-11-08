@@ -9,7 +9,7 @@ const AddCategoryWiseRoom = () => {
   const [allBrands, setAllBrands] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/roomCategory")
+    fetch("https://b8-a11-hotel-booking-server.vercel.app/roomCategory")
       .then((res) => res.json())
       .then((data) => setAllBrands(data));
   }, []);
@@ -49,7 +49,7 @@ const AddCategoryWiseRoom = () => {
     // form.price.value = "";
     // form.description.value = "";
 
-    fetch("http://localhost:5000/allRooms", {
+    fetch("https://b8-a11-hotel-booking-server.vercel.app/allRooms", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -95,7 +95,7 @@ const AddCategoryWiseRoom = () => {
         <div className="absolute top-0 left-0 w-full h-[700%] md:h-[350%] lg:h-[180%] bg-black opacity-80"></div>
         <div className="absolute top-[350%] md:top-[180%] lg:top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-1">
           <h1 className="text-xl lg:text-5xl font-bold mb-5 text-[#00ffcc] uppercase pt-5">
-            Add Brand New Cars Here
+            Add New Rooms Here
           </h1>
           {/* form  */}
           <div className="card flex-shrink-0 w-screen lg:w-full  shadow-2xl ">
@@ -294,7 +294,7 @@ const AddCategoryWiseRoom = () => {
               </div>
 
               <div className="form-control mt-6 pb-10">
-                <button className="btn btn-primary text-2xl ">ADD CAR</button>
+                <button className="btn btn-primary text-2xl ">ADD Rooms</button>
               </div>
             </form>
           </div>

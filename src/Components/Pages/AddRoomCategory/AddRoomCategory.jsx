@@ -12,12 +12,13 @@ const AddRoomCategory = () => {
     const Category = { CategoryName, image, price };
     // console.log(Brand);
 
-    fetch("http://localhost:5000/roomCategory", {
+    fetch("https://b8-a11-hotel-booking-server.vercel.app/roomCategory", {
       method: "POST",
       headers: {
         "content-type": "application/json",
       },
       body: JSON.stringify(Category),
+      credentials: "include",
     })
       .then((res) => res.json())
       .then((data) => {
@@ -38,7 +39,7 @@ const AddRoomCategory = () => {
       <div className="relative ">
         <div className="w-full h-0 relative pb-[56.250%]">
           <video
-            src={video} // Replace with your video URL
+            src={video}
             autoPlay
             muted
             loop
@@ -101,7 +102,7 @@ const AddRoomCategory = () => {
 
               <div className="form-control mt-6 pb-10">
                 <button className="btn btn-primary text-lg md:text-xl lg:text-2xl ">
-                  s ADD Room Category
+                  ADD Room Category
                 </button>
               </div>
             </form>

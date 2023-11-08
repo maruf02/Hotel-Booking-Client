@@ -49,7 +49,7 @@ const SeparateCategoryRoom = () => {
               ))
             ) : (
               <p className="text-red-800 text-5xl text-center">
-                No Available Car Right now. Please wait Until Available
+                No Available Room Right now. Please wait Until Available
               </p>
             )}
           </div>

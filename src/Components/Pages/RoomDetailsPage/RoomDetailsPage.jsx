@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";
 import "react-image-gallery/styles/css/image-gallery.css";
 import Gallery from "react-image-gallery";
@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
 
 const RoomDetailsPage = () => {
+  const [reviews, setReviews] = useState();
   const carDetails = useLoaderData();
   const { user } = useContext(AuthContext);
 
@@ -63,17 +64,29 @@ const RoomDetailsPage = () => {
     };
 
     // **************************************************
-    fetch(`http://localhost:5000/allRooms/${_id}`, {
+    useEffect(() => {
+      fetch(`https://b8-a11-hotel-booking-server.vercel.app/review`, {
+        method: "GET",
+        headers: {
+          "content-type": "application/json",
+        },
+        credentials: "include",
+      })
+        .then((res) => res.json())
+        .then((data) => setReviews(data));
+    }, [_id]);
+
+    fetch(`https://b8-a11-hotel-booking-server.vercel.app/allRooms/${_id}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
       },
+      credentials: "include",
     })
       .then((res) => res.json())
       .then((data) => {
         console.log("gf", availability);
         if (availability === "NO" || availability === "no") {
-          // Show a message that the item is unavailable
           Swal.fire({
             title: "Item Unavailable",
             text: "This item is currently unavailable.",
@@ -81,7 +94,6 @@ const RoomDetailsPage = () => {
             confirmButtonText: "OK",
           });
         } else if (availability === "Yes" || availability === "YES") {
-          // You can use the Link component to navigate to the booking page
           window.location.href = `/roomBooking/${CategoryName}/${_id}`;
         }
       });
@@ -93,17 +105,24 @@ const RoomDetailsPage = () => {
         {/* left */}
         <div className="w-full  ">
           <div className="w-full">
-            <Gallery
-              items={images}
-              autoPlay={true} // Enable autoplay
-              slideDuration={4000}
-            />
+            <Gallery items={images} autoPlay={true} slideDuration={4000} />
           </div>
           <div className="py-2">
             <div className="card w-full bg-[#adebeb] text-black">
               <div className="card-body">
                 <h2 className="card-title">Short Description:</h2>
                 <p>{description}</p>
+                <div>
+                  <ul>
+                    {/* {reviews.map((review) => (
+                      <li key={review._id}>
+                        <p>Rating: {review.rating}</p>
+                        <p>Comment: {review.comment}</p>
+                        <p>Posted by: {review.userName}</p>
+                      </li>
+                    ))} */}
+                  </ul>
+                </div>
               </div>
             </div>
           </div>

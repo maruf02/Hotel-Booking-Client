@@ -4,7 +4,7 @@ import RoomCategorySingleCard from "../RoomCategorySingleCard/RoomCategorySingle
 const RoomCategorySection = () => {
   const [allBrands, setAllBrands] = useState([]);
   useEffect(() => {
-    fetch("http://localhost:5000/roomCategory")
+    fetch("https://b8-a11-hotel-booking-server.vercel.app/roomCategory")
       .then((res) => res.json())
       .then((data) => setAllBrands(data));
   }, []);
@@ -12,7 +12,7 @@ const RoomCategorySection = () => {
     <div>
       <div className="container mx-auto py-10">
         <div className="text-center text-5xl ">
-          <h2 className="text-[#00b359] font-bold ">Our Brand Car</h2>
+          <h2 className="text-[#00b359] font-bold ">Our Rooms</h2>
           <p className="border-b-4 w-1/4 relative left-[38%] mt-3 border-black"></p>
         </div>
         <div className="container mx-auto flex justify-center">

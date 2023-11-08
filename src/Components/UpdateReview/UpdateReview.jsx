@@ -27,18 +27,29 @@ const UpdateReview = () => {
       email,
       date,
     };
-    console.log(updateBrand);
+    //   date calculation with moment js
+    // console.log(date);
+    // console.log(date2);
+    // let date3 = moment(date);
+    // let date4 = moment(date2);
+    // let dateDiff = date3.diff(date4, "days");
+    // console.log(dateDiff);
 
-    fetch(`http://localhost:5000/Cart/${userName}/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateBrand),
-    })
+    fetch(
+      `https://b8-a11-hotel-booking-server.vercel.app/Cart/${userName}/${_id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateBrand),
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
+
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
@@ -129,8 +140,7 @@ const UpdateReview = () => {
                   selected={selectedDate}
                   onChange={handleDateChange}
                   dateFormat="MMMM d, yyyy"
-                  minDate={moment().toDate()} // Set the minimum selectable date
-                  // Set width and height using inline styles
+                  minDate={moment().toDate()}
                 />
               </div>
 

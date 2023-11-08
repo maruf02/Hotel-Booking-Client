@@ -29,7 +29,7 @@ const BannerSection = () => {
           <div className="relative lg:h-[650px] ">
             <div className="w-full h-0 relative pb-[56.250%]">
               <video
-                src={video1} // Replace with your video URL
+                src={video1}
                 autoPlay
                 muted
                 loop
@@ -52,7 +52,7 @@ const BannerSection = () => {
           <div className="relative lg:h-[650px] ">
             <div className="w-full h-0 relative pb-[56.250%]">
               <video
-                src={video3} // Replace with your video URL
+                src={video3}
                 autoPlay
                 muted
                 loop
@@ -75,7 +75,7 @@ const BannerSection = () => {
           <div className="relative lg:h-[650px] ">
             <div className="w-full h-0 relative pb-[56.250%]">
               <video
-                src={video2} // Replace with your video URL
+                src={video2}
                 autoPlay
                 muted
                 loop
