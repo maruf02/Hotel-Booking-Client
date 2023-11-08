@@ -18,6 +18,7 @@ import SignUpPage from "./Components/Pages/SignUpPage/SignUpPage";
 import RoomPage from "./Components/Pages/RoomPage/RoomPage";
 import MyBookingPage from "./Components/Pages/MyBookingPage/MyBookingPage";
 import BookingForm from "./Components/Pages/BookingForm/BookingForm";
+import UpdateReview from "./Components/UpdateReview/UpdateReview";
 
 const router = createBrowserRouter([
   {
@@ -108,6 +109,12 @@ const router = createBrowserRouter([
         path: "/myCart",
         element: <MyBookingPage></MyBookingPage>,
         loader: () => fetch("http://localhost:5000/Cart"),
+      },
+      {
+        path: "/updateReview/:userName/:id",
+        element: <UpdateReview></UpdateReview>,
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/Cart/${params.userName}/${params.id}`),
       },
     ],
   },

@@ -1,10 +1,11 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const MyBookingSingleCard = ({ cart }) => {
-  const { _id, image, CategoryName, name, price } = cart;
+  const { _id, image, CategoryName, price, name1, nid, email, date } = cart;
   return (
     <div>
-      <div className="flex flex-row rounded-lg card card-compact  bg-slate-300 text-black shadow-xl pr-16">
+      <div className="flex flex-row rounded-lg card card-compact  bg-slate-300 text-black shadow-xl ">
         {/* image part */}
         <div className="">
           <img src={image} alt="" className="w-56 h-full rounded-lg" />
@@ -15,12 +16,20 @@ const MyBookingSingleCard = ({ cart }) => {
             {CategoryName}-{name}
           </h2>
           <h2 className="pl-5">Price:${price}</h2>
-          <button
-            onClick={() => handleDelete(_id)}
-            className="btn btn-error ml-5 my-5"
-          >
-            Remove
-          </button>
+          <div className=" ">
+            <Link to={`/updateReview/${CategoryName}/${_id}`}>
+              <button className="btn btn-error ml-2 my-5">Update</button>
+            </Link>
+            <button
+              onClick={() => handleDelete(_id)}
+              className="btn btn-error ml-2 my-5"
+            >
+              Remove
+            </button>
+            <Link to={`/review/${_id}`}>
+              <button className="btn btn-error ml-2 my-5">Review</button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>
