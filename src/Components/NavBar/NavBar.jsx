@@ -1,19 +1,29 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useContext } from "react";
+import { Link, NavLink } from "react-router-dom";
+import "./Navbar.css";
+import { AuthContext } from "../AuthProvider/AuthProvider";
 
 const NavBar = () => {
+  const { user, logOut } = useContext(AuthContext);
+  const handleSignOut = () => {
+    logOut().then().catch();
+  };
   const meneBar = (
     <>
       <li>
-        <Link>
+        <NavLink to="/" className="activeNavLink ">
           <button>Home</button>
-        </Link>
+        </NavLink>
       </li>
       <li>
-        <a>Parent</a>
+        <NavLink to="/rooms" className="activeNavLink ">
+          <button>Rooms</button>
+        </NavLink>
       </li>
       <li>
-        <a>Item 3</a>
+        <NavLink to="/myCart" className="activeNavLink ">
+          <button>My Booking</button>
+        </NavLink>
       </li>
     </>
   );
@@ -55,43 +65,59 @@ const NavBar = () => {
         <div className="navbar-end hidden lg:flex">
           <ul className="menu menu-horizontal px-1">{meneBar}</ul>
         </div>
-        <div className="ml-[30%] md:ml-[40%] lg:ml-0">
-          <a className="btn btn-outline btn-accent text-lg">Login</a>
-          {/* propic section */}
-          <div className="dropdown dropdown-end">
-            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
-              <div className="w-10 rounded-full">
-                <img src="https://i.ibb.co/w4b3n6F/avator.png" />
+        {user ? (
+          <>
+            <div className="ml-[30%] md:ml-[40%] lg:ml-0">
+              {/* propic section */}
+              <div className="pr-2 text-lg">
+                <p>{user.displayName}</p>
               </div>
-            </label>
-            <ul
-              tabIndex={0}
-              className="mt-3 z-[10] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
-            >
-              <li>
-                <Link to="/AddRoomCategory">
-                  <button>Add Room Category</button>
-                </Link>
-              </li>
-              <li>
-                <Link to="/AddCategoriesRoom">
-                  <button>Add Categories Room</button>
-                </Link>
-              </li>
-              <li>
-                <Link>
-                  <button>View Room Category</button>
-                </Link>
-              </li>
-              <li>
-                <Link>
-                  <button>Logout</button>
-                </Link>
-              </li>
-            </ul>
-          </div>
-          {/* propic section */}
-        </div>
+              <div className="dropdown dropdown-end">
+                <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                  <div className="w-10 rounded-full">
+                    <img src={user?.photoURL} />
+                  </div>
+                </label>
+                <ul
+                  tabIndex={0}
+                  className="mt-3 z-[10] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52"
+                >
+                  <li>
+                    <Link to="/AddRoomCategory">
+                      <button>Add Room Category</button>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link to="/AddCategoriesRoom">
+                      <button>Add Categories Room</button>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link>
+                      <button>View Room Category</button>
+                    </Link>
+                  </li>
+                  <li>
+                    <Link>
+                      <button onClick={handleSignOut}>Logout</button>
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+              {/* propic section */}
+            </div>
+          </>
+        ) : (
+          <>
+            <div className="ml-[30%] md:ml-[40%] lg:ml-0">
+              <Link to="/signIn">
+                <button className="btn btn-outline btn-accent text-lg">
+                  Login
+                </button>
+              </Link>
+            </div>
+          </>
+        )}
       </div>
     </div>
   );
