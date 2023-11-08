@@ -72,6 +72,14 @@ const router = createBrowserRouter([
           ),
       },
       {
+        path: "roomBooking/:category/:id",
+        element: <BookingForm></BookingForm>,
+        loader: ({ params }) =>
+          fetch(
+            `http://localhost:5000/allRooms/${params.category}/${params.id}`
+          ),
+      },
+      {
         path: "/updateRoomDetails/:category/:id",
         element: (
           <PrivateRoute>
@@ -100,10 +108,6 @@ const router = createBrowserRouter([
         path: "/myCart",
         element: <MyBookingPage></MyBookingPage>,
         loader: () => fetch("http://localhost:5000/Cart"),
-      },
-      {
-        path: "bookingForm",
-        element: <BookingForm></BookingForm>,
       },
     ],
   },

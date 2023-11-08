@@ -82,7 +82,7 @@ const RoomDetailsPage = () => {
           });
         } else if (availability === "Yes" || availability === "YES") {
           // You can use the Link component to navigate to the booking page
-          window.location.href = "/bookingForm";
+          window.location.href = `/roomBooking/${CategoryName}/${_id}`;
         }
       });
   };
@@ -139,15 +139,13 @@ const RoomDetailsPage = () => {
               </div>
             </div>
             <div className="pt-2 bg-red-400 mx-10 h-12 rounded-2xl text-center">
-              <Link to="/bookingForm">
-                <button
-                  // onClick={handleMyCart}
-                  onClick={handleMyCart}
-                  className="text-black text-xl font-bold w-full"
-                >
-                  Add To Cart
-                </button>
-              </Link>
+              <button
+                // onClick={handleMyCart}
+                onClick={handleMyCart}
+                className="text-black text-xl font-bold w-full"
+              >
+                Add To Cart
+              </button>
             </div>
           </div>
         </div>
