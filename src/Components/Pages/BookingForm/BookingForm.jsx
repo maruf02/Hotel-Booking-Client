@@ -37,7 +37,7 @@ const BookingForm = () => {
       CategoryName,
       name,
     };
-    console.log(Brand);
+
     fetch("http://localhost:5000/Cart", {
       method: "POST",
       headers: {
@@ -47,44 +47,51 @@ const BookingForm = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
         if (data.insertedId) {
+          // Data successfully inserted, now update availability
+          fetch(`http://localhost:5000/allRooms/${_id}`, {
+            method: "GET",
+            headers: {
+              "content-type": "application/json",
+            },
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              if (
+                availability === "Yes" ||
+                availability === "yes" ||
+                availability === "YES"
+              ) {
+                // Perform a PATCH operation to update availability in the allRooms collection
+                fetch(`http://localhost:5000/allRooms/${_id}`, {
+                  method: "PATCH",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify({ availability: "NO" }),
+                })
+                  .then((res) => res.json())
+                  .then((updateResult) => {
+                    if (updateResult.modifiedCount > 0) {
+                      // Update state or show a message that availability is updated
+                      console.log(
+                        "Availability updated to 'NO' in allRooms collection."
+                      );
+                    } else {
+                      console.log(
+                        "Failed to update availability in allRooms collection."
+                      );
+                    }
+                  });
+              }
+            });
+
           Swal.fire({
             title: "Success!",
             text: `Add this Car into ${userName}'s Cart Successfully`,
             icon: "success",
             confirmButtonText: "Cool",
           });
-            // **************************************
-             fetch(`http://localhost:5000/allRooms/${_id}`, {
-    method: "GET",
-    headers: {
-      "content-type": "application/json",
-    },
-  })
-    .then((res) => res.json())
-    .then((data) => {
-      const roomAvailability = data.availability; // Correctly access the availability property
-
- if (availability === "Yes"   ) {
-        // Perform a PATCH operation to update availability in the allRooms collection
-        fetch(`http://localhost:5000/allRooms/${_id}`, {
-          method: "PATCH",
-          headers: {
-            "content-type": "application/json",
-          },
-          body: JSON.stringify({ availability: "NO" }),
-        })
-          .then((res) => res.json())
-          .then((updateResult) => {
-            if (updateResult.modifiedCount > 0) {
-              // Update state or show a message that availability is updated
-              console.log("Availability updated to 'NO' in allRooms collection.");
-            } else {
-              console.log("Failed to update availability in allRooms collection.");
-            }
-          });
-            // **************************************
         }
       });
   };
