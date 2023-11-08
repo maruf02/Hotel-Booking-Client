@@ -11,7 +11,7 @@ const UpdateReview = () => {
   const [allBrands, setAllBrands] = useState([]);
   const room = useLoaderData();
 
-  const { name1, nid, email, date } = room;
+  const { _id, name1, userName, nid, email, date } = room;
   console.log(room);
 
   const handleMyCart = (event) => {
@@ -28,6 +28,26 @@ const UpdateReview = () => {
       date,
     };
     console.log(updateBrand);
+
+    fetch(`http://localhost:5000/Cart/${userName}/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateBrand),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        // console.log(data);
+        if (data.modifiedCount > 0) {
+          Swal.fire({
+            title: "Success!",
+            text: "Brand Name & Image Insert Successfully",
+            icon: "success",
+            confirmButtonText: "Cool",
+          });
+        }
+      });
   };
 
   const handleDateChange = (date) => {
@@ -100,7 +120,7 @@ const UpdateReview = () => {
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-[#00ffcc] text-xl">
-                    Date
+                    Date: <span className="text-lg">{date}</span>
                   </span>
                 </label>
                 <ReactDatePicker

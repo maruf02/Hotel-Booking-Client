@@ -2,7 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const MyBookingSingleCard = ({ cart }) => {
-  const { _id, image, CategoryName, price, name1, nid, email, date } = cart;
+  const { _id, image, CategoryName, userName, price, name1, nid, email, date } =
+    cart;
   return (
     <div>
       <div className="flex flex-row rounded-lg card card-compact  bg-slate-300 text-black shadow-xl ">
@@ -17,7 +18,7 @@ const MyBookingSingleCard = ({ cart }) => {
           </h2>
           <h2 className="pl-5">Price:${price}</h2>
           <div className=" ">
-            <Link to={`/updateReview/${CategoryName}/${_id}`}>
+            <Link to={`/updateReview/${userName}/${_id}`}>
               <button className="btn btn-error ml-2 my-5">Update</button>
             </Link>
             <button
