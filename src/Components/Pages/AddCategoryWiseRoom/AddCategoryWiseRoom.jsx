@@ -55,10 +55,11 @@ const AddCategoryWiseRoom = () => {
         "content-type": "application/json",
       },
       body: JSON.stringify(Brand),
+      credentials: "include",
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
+        console.log(data);
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",

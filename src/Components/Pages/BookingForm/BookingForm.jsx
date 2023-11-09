@@ -10,8 +10,11 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 const BookingForm = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const room = useLoaderData();
-  const { _id, price, image, CategoryName, name, availability } = room;
+  const { _id, price, image, CategoryName, name, availability, seatNum } = room;
   const { user } = useContext(AuthContext);
+
+  let newSeatNum = seatNum - 1;
+  console.log(newSeatNum);
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
@@ -40,7 +43,7 @@ const BookingForm = () => {
       CategoryName,
       name,
     };
-    console.log(user);
+    console.log(userName);
     fetch("http://localhost:5000/Cart", {
       method: "POST",
       headers: {
@@ -62,24 +65,53 @@ const BookingForm = () => {
             .then((res) => res.json())
             .then((data) => {
               if (
-                availability === "Yes" ||
-                availability === "yes" ||
-                availability === "YES"
+                (availability === "Yes" ||
+                  availability === "yes" ||
+                  availability === "YES") &&
+                seatNum > 1
               ) {
                 fetch(`http://localhost:5000/allRooms/${_id}`, {
                   method: "PATCH",
                   headers: {
                     "content-type": "application/json",
                   },
-                  body: JSON.stringify({ availability: "NO" }),
+                  body: JSON.stringify({
+                    availability: "YES",
+                    seatNum: newSeatNum,
+                  }),
                   credentials: "include",
                 })
                   .then((res) => res.json())
                   .then((updateResult) => {
                     if (updateResult.modifiedCount > 0) {
+                      console.log("aaaaaa");
+                    } else {
                       console.log(
-                        "Availability updated to 'NO' in allRooms collection."
+                        "Failed to update availability in allRooms collection."
                       );
+                    }
+                  });
+              } else if (
+                availability === "Yes" ||
+                availability === "yes" ||
+                availability === "YES"
+              ) {
+                // Condition 2: Availability is "YES" but seatNum is 0
+                fetch(`http://localhost:5000/allRooms/${_id}`, {
+                  method: "PATCH",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify({
+                    availability: "NO",
+                    seatNum: 0,
+                  }),
+                  credentials: "include",
+                })
+                  .then((res) => res.json())
+                  .then((updateResult) => {
+                    if (updateResult.modifiedCount > 0) {
+                      console.log("bb");
                     } else {
                       console.log(
                         "Failed to update availability in allRooms collection."
