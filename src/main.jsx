@@ -63,9 +63,7 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://b8-a11-hotel-booking-server.vercel.app/allRooms/${params.category}`
-          ),
+          fetch(`http://localhost:5000/allRooms/${params.category}`),
       },
       {
         path: "/roomDetails/:category/:id",
@@ -76,19 +74,20 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://b8-a11-hotel-booking-server.vercel.app/allRooms/${params.category}/${params.id}`
+            `http://localhost:5000/allRooms/${params.category}/${params.id}`
           ),
       },
+
       {
         path: "roomBooking/:category/:id",
         element: (
-          <SeparateCategoryRoom>
+          <PrivateRoute>
             <BookingForm></BookingForm>
-          </SeparateCategoryRoom>
+          </PrivateRoute>
         ),
         loader: ({ params }) =>
           fetch(
-            `https://b8-a11-hotel-booking-server.vercel.app/allRooms/${params.category}/${params.id}`
+            `http://localhost:5000/allRooms/${params.category}/${params.id}`
           ),
       },
       {
@@ -100,7 +99,7 @@ const router = createBrowserRouter([
         ),
         loader: ({ params }) =>
           fetch(
-            `https://b8-a11-hotel-booking-server.vercel.app/allRooms/${params.category}/${params.id}`,
+            `http://localhost:5000/allRooms/${params.category}/${params.id}`,
             {
               credentials: "include",
             }
@@ -120,46 +119,40 @@ const router = createBrowserRouter([
         element: <RoomPage></RoomPage>,
       },
       {
-        path: "/myCart",
+        path: "/myCart/:userName",
         element: (
-          <BookingForm>
+          <PrivateRoute>
             <MyBookingPage></MyBookingPage>
-          </BookingForm>
+          </PrivateRoute>
         ),
-        loader: () =>
-          fetch("https://b8-a11-hotel-booking-server.vercel.app/Cart", {
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/Cart/${params.userName}`, {
             credentials: "include",
           }),
       },
       {
         path: "/updateReview/:userName/:id",
         element: (
-          <MyBookingPage>
+          <PrivateRoute>
             <UpdateReview></UpdateReview>
-          </MyBookingPage>
+          </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://b8-a11-hotel-booking-server.vercel.app/Cart/${params.userName}/${params.id}`,
-            {
-              credentials: "include",
-            }
-          ),
+          fetch(`http://localhost:5000/Cart/${params.userName}/${params.id}`, {
+            credentials: "include",
+          }),
       },
       {
         path: "/review/:userName/:id",
         element: (
-          <UpdateReview>
+          <PrivateRoute>
             <ReviewPage></ReviewPage>
-          </UpdateReview>
+          </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(
-            `https://b8-a11-hotel-booking-server.vercel.app/Cart/${params.userName}/${params.id}`,
-            {
-              credentials: "include",
-            }
-          ),
+          fetch(`http://localhost:5000/Cart/${params.userName}/${params.id}`, {
+            credentials: "include",
+          }),
       },
     ],
   },

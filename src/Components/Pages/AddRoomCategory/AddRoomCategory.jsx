@@ -12,7 +12,7 @@ const AddRoomCategory = () => {
     const Category = { CategoryName, image, price };
     // console.log(Brand);
 
-    fetch("https://b8-a11-hotel-booking-server.vercel.app/roomCategory", {
+    fetch("http://localhost:5000/roomCategory", {
       method: "POST",
       headers: {
         "content-type": "application/json",

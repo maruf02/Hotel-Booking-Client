@@ -9,7 +9,7 @@ const AddCategoryWiseRoom = () => {
   const [allBrands, setAllBrands] = useState([]);
 
   useEffect(() => {
-    fetch("https://b8-a11-hotel-booking-server.vercel.app/roomCategory")
+    fetch("http://localhost:5000/roomCategory")
       .then((res) => res.json())
       .then((data) => setAllBrands(data));
   }, []);
@@ -49,7 +49,7 @@ const AddCategoryWiseRoom = () => {
     // form.price.value = "";
     // form.description.value = "";
 
-    fetch("https://b8-a11-hotel-booking-server.vercel.app/allRooms", {
+    fetch("http://localhost:5000/allRooms", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -89,11 +89,11 @@ const AddCategoryWiseRoom = () => {
             muted
             loop
             playsInline
-            className="w-full h-[700%] md:h-[350%] lg:h-[180%]  absolute object-cover"
+            className="w-full h-[700%] md:h-[350%] lg:h-[140%]  absolute object-cover"
           ></video>
         </div>
-        <div className="absolute top-0 left-0 w-full h-[700%] md:h-[350%] lg:h-[180%] bg-black opacity-80"></div>
-        <div className="absolute top-[350%] md:top-[180%] lg:top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-1">
+        <div className="absolute top-0 left-0 w-full h-[700%] md:h-[350%] lg:h-[140%] bg-black opacity-80"></div>
+        <div className="absolute top-[350%] md:top-[180%] lg:top-[70%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-1">
           <h1 className="text-xl lg:text-5xl font-bold mb-5 text-[#00ffcc] uppercase pt-5">
             Add New Rooms Here
           </h1>

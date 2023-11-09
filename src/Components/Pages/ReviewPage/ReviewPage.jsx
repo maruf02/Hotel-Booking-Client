@@ -1,28 +1,38 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 import StarRatings from "react-star-ratings";
 import Swal from "sweetalert2";
+import { AuthContext } from "../../AuthProvider/AuthProvider";
+import moment from "moment";
 
 const ReviewPage = () => {
   const review = useLoaderData();
   const [rating, setRating] = useState(0);
-  const { _id, name1, userName, nid, email, date } = review;
-
+  const { user } = useContext(AuthContext);
+  const { _id, roomId, name1, userName, nid, email, date } = review;
+  const image = user?.photoURL;
+  // console.log(name1);
   const handleAddCar = (event) => {
     event.preventDefault();
     const form = event.target;
-
+    const currentDate = moment().format("DD-MM-YYYY");
     const name = form.name.value;
+
     // const rating = form.rating.value;
     const description = form.description.value;
     const Brand = {
+      roomId: roomId,
+      userName,
+      currentDate,
+      image,
+      email,
       name,
       rating,
       description,
     };
     // console.log(Brand);
 
-    fetch("https://b8-a11-hotel-booking-server.vercel.app/review", {
+    fetch("http://localhost:5000/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

@@ -4,12 +4,14 @@ import "react-image-gallery/styles/css/image-gallery.css";
 import Gallery from "react-image-gallery";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../AuthProvider/AuthProvider";
+import DemoPage from "./DemoPage";
+import StarRatings from "react-star-ratings";
 
 const RoomDetailsPage = () => {
-  const [reviews, setReviews] = useState();
+  const [reviews, setReviews] = useState([]);
   const carDetails = useLoaderData();
   const { user } = useContext(AuthContext);
-
+  console.log(reviews.length);
   const {
     _id,
     image,
@@ -49,7 +51,12 @@ const RoomDetailsPage = () => {
       thumbnail: carDetails.image4,
     },
   ];
-
+  useEffect(() => {
+    fetch(`http://localhost:5000/review/${_id}`)
+      .then((res) => res.json())
+      .then((data) => setReviews(data));
+  }, []);
+  // ********************************************
   const handleMyCart = (event) => {
     event.preventDefault();
     // console.log("button click");
@@ -64,19 +71,19 @@ const RoomDetailsPage = () => {
     };
 
     // **************************************************
-    useEffect(() => {
-      fetch(`https://b8-a11-hotel-booking-server.vercel.app/review`, {
-        method: "GET",
-        headers: {
-          "content-type": "application/json",
-        },
-        credentials: "include",
-      })
-        .then((res) => res.json())
-        .then((data) => setReviews(data));
-    }, [_id]);
 
-    fetch(`https://b8-a11-hotel-booking-server.vercel.app/allRooms/${_id}`, {
+    // fetch(`http://localhost:5000/review/${roomId}`, {
+    //   method: "GET",
+    //   headers: {
+    //     "content-type": "application/json",
+    //   },
+    //   credentials: "include",
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => setReviews(data));
+    // console.log("sd", reviews.length);
+    // *****************************************
+    fetch(`http://localhost:5000/allRooms/${_id}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
@@ -112,16 +119,19 @@ const RoomDetailsPage = () => {
               <div className="card-body">
                 <h2 className="card-title">Short Description:</h2>
                 <p>{description}</p>
-                <div>
-                  <ul>
-                    {/* {reviews.map((review) => (
-                      <li key={review._id}>
-                        <p>Rating: {review.rating}</p>
-                        <p>Comment: {review.comment}</p>
-                        <p>Posted by: {review.userName}</p>
-                      </li>
-                    ))} */}
-                  </ul>
+                <p className="py-2 text-center text-2xl font-bold">
+                  Our customer's valuable Feedback:({reviews.length})
+                </p>
+                <div className="flex  flex-row gap-2 flex-wrap justify-center">
+                  {reviews.length > 0 ? (
+                    reviews.map((review) => (
+                      <DemoPage key={review._id} review={review}></DemoPage>
+                    ))
+                  ) : (
+                    <p className=" text-2xl font-bold text-center text-red-700">
+                      No Review Found
+                    </p>
+                  )}
                 </div>
               </div>
             </div>
@@ -138,7 +148,9 @@ const RoomDetailsPage = () => {
                   <h2 className="card-title text-3xl md:text-5xl text-[#000066] font-bold">
                     {CategoryName}-{name}
                   </h2>
-                  <p className="text-5xl text-red-800 font-bold">${price}</p>
+                  <p className="text-5xl text-red-800 font-bold">
+                    ${price} /<span className="text-2xl">Per Night</span>
+                  </p>
                 </div>
               </div>
             </div>
@@ -151,9 +163,30 @@ const RoomDetailsPage = () => {
                   <p>
                     Name: {CategoryName}-{name}
                   </p>
-                  <p>Availability: {availability}</p>
+                  <h2 className="card-title">
+                    Availability:
+                    {availability === "Yes" || availability === "YES" ? (
+                      <p className="  text-green-300  ">Available</p>
+                    ) : (
+                      <p className="  text-red-800 ">Already Booked</p>
+                    )}
+                  </h2>
                   <p>Seat Num: {seatNum}</p>
-                  <p>Price: ${price}</p>
+                  <p>Price: ${price}/Per Night</p>
+                  <h2 className="flex flex-col md:flex-row gap-2 ">
+                    <span className="pt-[2px]">
+                      TotalRating: ({reviews.length})
+                    </span>
+                    <StarRatings
+                      rating={reviews.length}
+                      starRatedColor="#f39c12"
+                      starHoverColor="#f39c12"
+                      numberOfStars={5}
+                      starDimension="20px"
+                      starSpacing="2px"
+                      name="rating"
+                    />
+                  </h2>
                 </div>
               </div>
             </div>

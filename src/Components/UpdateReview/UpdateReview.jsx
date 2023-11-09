@@ -23,6 +23,7 @@ const UpdateReview = () => {
     const date = form.date.value;
     const updateBrand = {
       name1,
+      userName,
       nid,
       email,
       date,
@@ -35,17 +36,14 @@ const UpdateReview = () => {
     // let dateDiff = date3.diff(date4, "days");
     // console.log(dateDiff);
 
-    fetch(
-      `https://b8-a11-hotel-booking-server.vercel.app/Cart/${userName}/${_id}`,
-      {
-        method: "PATCH",
-        headers: {
-          "content-type": "application/json",
-        },
-        body: JSON.stringify(updateBrand),
-        credentials: "include",
-      }
-    )
+    fetch(`http://localhost:5000/Cart/${userName}/${_id}`, {
+      method: "PATCH",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updateBrand),
+      credentials: "include",
+    })
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -65,7 +63,7 @@ const UpdateReview = () => {
     setSelectedDate(date);
   };
   return (
-    <div>
+    <div className="mb-[120%] md:mb-60 lg:mb-0">
       <div className="relative">
         <div className="w-full h-0 relative pb-[56.250%]">
           <video
@@ -74,11 +72,11 @@ const UpdateReview = () => {
             muted
             loop
             playsInline
-            className="w-full h-[700%] md:h-[350%] lg:h-[180%] absolute object-cover"
+            className="w-full h-[320%] md:h-[160%] lg:h-[100%] absolute object-cover"
           ></video>
         </div>
-        <div className="absolute top-0 left-0 w-full h-[700%] md:h-[350%] lg:h-[180%] bg-black opacity-80"></div>
-        <div className="absolute top-[350%] md:top-[180%] lg:top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-1">
+        <div className="absolute top-0 left-0 w-full h-[320%] md:h-[160%] lg:h-[100%] bg-black opacity-80"></div>
+        <div className="absolute top-[170%] md:top-[80%] lg:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-1">
           <h1 className="text-xl lg:text-5xl font-bold mb-5 text-[#00ffcc] uppercase pt-5">
             Add Brand New Cars Here
           </h1>
@@ -94,7 +92,7 @@ const UpdateReview = () => {
                 <input
                   type="text"
                   name="name1"
-                  defaultValue={name1}
+                  defaultValue={userName}
                   placeholder="Enter Car Image URL here"
                   required
                   className="input input-bordered input-primary w-full bg-transparent text-lg"

@@ -20,14 +20,17 @@ const BookingForm = () => {
   const handleMyCart = (event) => {
     event.preventDefault();
     const userName = user.displayName;
+
     const form = event.target;
     const name1 = form.name.value;
     const nid = form.nid.value;
-    const email = form.email.value;
+    const email = user.email;
     const date = form.date.value;
 
     const Brand = {
+      roomId: _id,
       userName,
+
       name1,
       nid,
       email,
@@ -37,8 +40,8 @@ const BookingForm = () => {
       CategoryName,
       name,
     };
-
-    fetch("https://b8-a11-hotel-booking-server.vercel.app/Cart", {
+    console.log(user);
+    fetch("http://localhost:5000/Cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -49,16 +52,13 @@ const BookingForm = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          fetch(
-            `https://b8-a11-hotel-booking-server.vercel.app/allRooms/${_id}`,
-            {
-              method: "GET",
-              headers: {
-                "content-type": "application/json",
-              },
-              credentials: "include",
-            }
-          )
+          fetch(`http://localhost:5000/allRooms/${_id}`, {
+            method: "GET",
+            headers: {
+              "content-type": "application/json",
+            },
+            credentials: "include",
+          })
             .then((res) => res.json())
             .then((data) => {
               if (
@@ -66,17 +66,14 @@ const BookingForm = () => {
                 availability === "yes" ||
                 availability === "YES"
               ) {
-                fetch(
-                  `https://b8-a11-hotel-booking-server.vercel.app/allRooms/${_id}`,
-                  {
-                    method: "PATCH",
-                    headers: {
-                      "content-type": "application/json",
-                    },
-                    body: JSON.stringify({ availability: "NO" }),
-                    credentials: "include",
-                  }
-                )
+                fetch(`http://localhost:5000/allRooms/${_id}`, {
+                  method: "PATCH",
+                  headers: {
+                    "content-type": "application/json",
+                  },
+                  body: JSON.stringify({ availability: "NO" }),
+                  credentials: "include",
+                })
                   .then((res) => res.json())
                   .then((updateResult) => {
                     if (updateResult.modifiedCount > 0) {
@@ -94,7 +91,7 @@ const BookingForm = () => {
 
           Swal.fire({
             title: "Success!",
-            text: `Add this Car into ${userName}'s Cart Successfully`,
+            html: ` Name: ${userName}'s <br/> Info:<br/> Room: ${CategoryName}-${name}<br/> Date: ${date}<br/> Price: $${price}/Per Night<br/> Add this Cart Successfully`,
             icon: "success",
             confirmButtonText: "Cool",
           });
@@ -102,7 +99,7 @@ const BookingForm = () => {
       });
   };
   return (
-    <div>
+    <div className="mb-[120%] md:mb-72 lg:mb-28">
       <div className="relative">
         <div className="w-full h-0 relative pb-[56.250%]">
           <video
@@ -111,11 +108,11 @@ const BookingForm = () => {
             muted
             loop
             playsInline
-            className="w-full h-[700%] md:h-[350%] lg:h-[180%] absolute object-cover"
+            className="w-full h-[320%] md:h-[170%] lg:h-[120%] absolute object-cover"
           ></video>
         </div>
-        <div className="absolute top-0 left-0 w-full h-[700%] md:h-[350%] lg:h-[180%] bg-black opacity-80"></div>
-        <div className="absolute top-[350%] md:top-[180%] lg:top-full left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-1">
+        <div className="absolute top-0 left-0 w-full h-[320%] md:h-[170%] lg:h-[120%] bg-black opacity-80"></div>
+        <div className="absolute top-[170%] md:top-[80%] lg:top-[60%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-1">
           <h1 className="text-xl lg:text-5xl font-bold mb-5 text-[#00ffcc] uppercase pt-5">
             Add Books Here
           </h1>

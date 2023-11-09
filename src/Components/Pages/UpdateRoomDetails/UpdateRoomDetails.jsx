@@ -10,7 +10,7 @@ const UpdateRoomDetails = () => {
   const [allBrands, setAllBrands] = useState([]);
 
   useEffect(() => {
-    fetch("https://b8-a11-hotel-booking-server.vercel.app/roomCategory", {
+    fetch("http://localhost:5000/roomCategory", {
       credentials: "include",
     })
       .then((res) => res.json())
@@ -61,7 +61,7 @@ const UpdateRoomDetails = () => {
     };
     // console.log(updateBrand);
 
-    fetch(`https://b8-a11-hotel-booking-server.vercel.app/allRooms/${_id}`, {
+    fetch(`http://localhost:5000/allRooms/${_id}`, {
       method: "PUT",
       headers: {
         "content-type": "application/json",

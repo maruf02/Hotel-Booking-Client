@@ -3,7 +3,3 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-.font-orbit {
-  font-family: "Orbitron", sans-serif;
-}

@@ -8,6 +8,8 @@ const NavBar = () => {
   const handleSignOut = () => {
     logOut().then().catch();
   };
+  const userName = user?.displayName;
+  // console.log(userName);
   const meneBar = (
     <>
       <li>
@@ -21,7 +23,10 @@ const NavBar = () => {
         </NavLink>
       </li>
       <li>
-        <NavLink to="/myCart" className="activeNavLink ">
+        {/* <NavLink to="/myCart" className="activeNavLink ">
+          <button>My Booking</button>
+        </NavLink> */}
+        <NavLink to={`/myCart/${userName}`} className="activeNavLink ">
           <button>My Booking</button>
         </NavLink>
       </li>

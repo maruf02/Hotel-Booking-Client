@@ -4,7 +4,7 @@ import RoomCategorySingleCard from "../RoomCategorySingleCard/RoomCategorySingle
 const RoomCategorySection = () => {
   const [allBrands, setAllBrands] = useState([]);
   useEffect(() => {
-    fetch("https://b8-a11-hotel-booking-server.vercel.app/roomCategory")
+    fetch("http://localhost:5000/roomCategory")
       .then((res) => res.json())
       .then((data) => setAllBrands(data));
   }, []);
