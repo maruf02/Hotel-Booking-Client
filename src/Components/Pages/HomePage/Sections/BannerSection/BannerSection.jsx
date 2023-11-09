@@ -40,10 +40,10 @@ const BannerSection = () => {
             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10">
               <h1 className="lg:text-5xl font-bold mb-5 text-[#00ffcc]">
-                Welcome To AUTOMOTIVE
+                Welcome To SeaSide Resort
               </h1>
               <p className="lg:text-3xl font-semibold text-[#00cc66] mb-5">
-                Your Journey Begins Here.
+                Your Journey Becomes Luxury Here.
               </p>
             </div>
           </div>
@@ -63,10 +63,10 @@ const BannerSection = () => {
             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10">
               <h1 className="lg:text-5xl font-bold mb-5 text-[#00ffcc]">
-                Welcome To AUTOMOTIVE
+                Welcome To SeaSide Resort
               </h1>
               <p className="lg:text-3xl font-semibold text-[#00cc66] mb-5">
-                Your Journey Begins Here.
+                Your Journey Becomes Luxury Here.
               </p>
             </div>
           </div>
@@ -86,10 +86,10 @@ const BannerSection = () => {
             <div className="absolute top-0 left-0 w-full h-full bg-black opacity-60"></div>
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-10">
               <h1 className="lg:text-5xl font-bold mb-5 text-[#00ffcc]">
-                Welcome To AUTOMOTIVE
+                Welcome To SeaSide Resort
               </h1>
               <p className="lg:text-3xl font-semibold text-[#00cc66] mb-5">
-                Your Journey Begins Here.
+                Your Journey Becomes Luxury Here.
               </p>
             </div>
           </div>

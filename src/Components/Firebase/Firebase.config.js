@@ -2,8 +2,12 @@
 import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
+// require('dotenv').config();
 // Your web app's Firebase configuration
+// console.log(process.env.API_KEY);
+// console.log(import.meta.env.API_KEY)
+// console.log(import.meta.env.API_KEY);
+
 const firebaseConfig = {
     apiKey: "AIzaSyCRU2XmSLkCZqK4r8tjRlvxfxTjM5oFxQQ",
     authDomain: "hotelbooking-client.firebaseapp.com",

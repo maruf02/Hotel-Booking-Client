@@ -18,17 +18,27 @@ const NavBar = () => {
         </NavLink>
       </li>
       <li>
+        <NavLink to="/about" className="activeNavLink ">
+          <button>About</button>
+        </NavLink>
+      </li>
+      <li>
         <NavLink to="/rooms" className="activeNavLink ">
           <button>Rooms</button>
         </NavLink>
       </li>
+
       <li>
+        {user ? (
+          <NavLink to={`/myCart/${userName}`} className="activeNavLink ">
+            <button>My Booking</button>
+          </NavLink>
+        ) : (
+          ""
+        )}
         {/* <NavLink to="/myCart" className="activeNavLink ">
           <button>My Booking</button>
         </NavLink> */}
-        <NavLink to={`/myCart/${userName}`} className="activeNavLink ">
-          <button>My Booking</button>
-        </NavLink>
       </li>
     </>
   );

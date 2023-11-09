@@ -4,6 +4,9 @@ import { AuthContext } from "../../AuthProvider/AuthProvider";
 import MyBookingSingleCard from "../MyBookingSingleCard/MyBookingSingleCard";
 import moment from "moment";
 import Swal from "sweetalert2";
+import AOS from "aos";
+import "aos/dist/aos.css";
+import { Helmet } from "react-helmet";
 
 const MyBookingPage = () => {
   const allData = useLoaderData();
@@ -17,6 +20,10 @@ const MyBookingPage = () => {
   //   // Use async/await and fetch with correct endpoint
 
   // }, []);
+
+  useEffect(() => {
+    AOS.init();
+  }, []);
 
   const handleDelete = (id, date) => {
     const currentDate = moment();
@@ -61,7 +68,14 @@ const MyBookingPage = () => {
   };
 
   return (
-    <div>
+    <div
+      data-aos="fade-down"
+      data-aos-duration="3000"
+      className="container mx-auto"
+    >
+      <Helmet>
+        <title>Booking | Seaside Resort</title>
+      </Helmet>
       <div className="container mx-auto flex justify-center ">
         {/* <h2>MyCartPage:{allCart.length}</h2> */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-5 py-5">

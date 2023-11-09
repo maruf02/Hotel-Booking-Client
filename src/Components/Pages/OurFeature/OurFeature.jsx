@@ -18,13 +18,12 @@ const OurFeature = () => {
               className="mx-auto h-10 w-10"
             />
             <h3 className="my-3 font-display font-medium">
-              Diverse Car Selection:
+              Private Beach Access::
             </h3>
             <p className="mt-1.5 text-sm leading-6 text-secondary-500">
-              We offer a wide range of car models from various manufacturers,
-              ensuring that you have a diverse selection to choose from. Whether
-              you're looking for a compact car, an SUV, or a luxury vehicle, we
-              have something for everyone.
+              Step directly onto the soft sands of our private beach, where
+              guests have exclusive access to relax, swim, and soak up the sun
+              in a secluded atmosphere.
             </p>
           </li>
           <li className="rounded-xl bg-slate-300 px-6 py-8 shadow-sm">
@@ -33,12 +32,13 @@ const OurFeature = () => {
               alt=""
               className="mx-auto h-10 w-10"
             />
-            <h3 className="my-3 font-display font-medium">Expert Advice:</h3>
+            <h3 className="my-3 font-display font-medium">
+              Infinity Pool with Ocean Views:
+            </h3>
             <p className="mt-1.5 text-sm leading-6 text-secondary-500">
-              Our experienced and knowledgeable staff is here to assist you
-              throughout your car-buying journey. We provide expert advice,
-              answer your questions, and guide you to make the best choice based
-              on your needs and preferences.
+              Take a refreshing dip in our infinity pool that seamlessly blends
+              with the horizon, offering panoramic views of the ocean for a
+              truly immersive experience.
             </p>
           </li>
           <li className="rounded-xl bg-slate-300 px-6 py-8 shadow-sm">
@@ -48,12 +48,12 @@ const OurFeature = () => {
               className="mx-auto h-10 w-10"
             />
             <h3 className="my-3 font-display font-medium">
-              Quality Assurance:
+              Gourmet Seaside Dining
             </h3>
             <p className="mt-1.5 text-sm leading-6 text-secondary-500">
-              We prioritize the quality of our cars. Each vehicle undergoes a
-              rigorous inspection to ensure it meets our high standards. You can
-              trust that the car you purchase is reliable and well-maintained.
+              Indulge in a culinary journey with our seaside restaurants,
+              serving fresh, locally sourced ingredients, and offering a menu
+              that captures the essence of coastal flavors.
             </p>
           </li>
           <li className="rounded-xl bg-slate-300 px-6 py-8 shadow-sm">
@@ -81,13 +81,12 @@ const OurFeature = () => {
                 className="mx-auto h-10 w-10"
               />
               <h3 className="my-3 font-display font-medium group-hover:text-primary-500">
-                Flexible Financing Options:
+                Spa and Wellness Retreat:
               </h3>
               <p className="mt-1.5 text-sm leading-6 text-secondary-500">
-                We understand that not everyone can make an upfront payment.
-                That's why we offer flexible financing options to make buying
-                your dream car more accessible. Our finance team can help you
-                find the right plan for your budget.
+                Rejuvenate your body and mind at our seaside spa, where expert
+                therapists offer a range of treatments inspired by the healing
+                powers of the ocean, promoting relaxation and wellness.
               </p>
             </a>
           </li>
@@ -99,13 +98,12 @@ const OurFeature = () => {
                 className="mx-auto h-10 w-10"
               />
               <h3 className="my-3 font-display font-medium group-hover:text-primary-500">
-                Test Drives:
+                Sunset Lounge and Bar:
               </h3>
               <p className="mt-1.5 text-sm leading-6 text-secondary-500">
-                If you're looking to upgrade your current vehicle, we provide
-                trade-in services. We'll evaluate your car's worth and offer
-                fair market value for your trade-in, making it easier to
-                transition to a new car.
+                Unwind in style at our Sunset Lounge, where you can sip on
+                handcrafted cocktails while witnessing breathtaking sunset views
+                over the shimmering waters of the sea.
               </p>
             </a>
           </li>

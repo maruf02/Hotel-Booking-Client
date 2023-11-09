@@ -20,6 +20,8 @@ import MyBookingPage from "./Components/Pages/MyBookingPage/MyBookingPage";
 import BookingForm from "./Components/Pages/BookingForm/BookingForm";
 import UpdateReview from "./Components/UpdateReview/UpdateReview";
 import ReviewPage from "./Components/Pages/ReviewPage/ReviewPage";
+import WhyChoseUS from "./Components/WhyChoseUS/WhyChoseUS";
+import WhyChooseUsPage from "./Components/Pages/WhyChooseUsPage/WhyChooseUsPage";
 
 const router = createBrowserRouter([
   {
@@ -113,6 +115,10 @@ const router = createBrowserRouter([
       {
         path: "/signUp",
         element: <SignUpPage></SignUpPage>,
+      },
+      {
+        path: "/about",
+        element: <WhyChooseUsPage></WhyChooseUsPage>,
       },
       {
         path: "/rooms",

@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import RoomCategorySection from "../HomePage/Sections/RoomCategorySection/RoomCategorySection";
+import WhyChoseUS from "../../WhyChoseUS/WhyChoseUS";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import OurFeature from "../OurFeature/OurFeature";
 import { Helmet } from "react-helmet";
 
-const RoomPage = () => {
+const WhyChooseUsPage = () => {
   useEffect(() => {
     AOS.init();
   }, []);
@@ -15,11 +16,12 @@ const RoomPage = () => {
       className="container mx-auto"
     >
       <Helmet>
-        <title>Rooms | Seaside Resort</title>
+        <title>About | Seaside Resort</title>
       </Helmet>
-      <RoomCategorySection></RoomCategorySection>
+      <WhyChoseUS></WhyChoseUS>
+      <OurFeature></OurFeature>
     </div>
   );
 };
 
-export default RoomPage;
+export default WhyChooseUsPage;

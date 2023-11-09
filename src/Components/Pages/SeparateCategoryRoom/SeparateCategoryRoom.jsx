@@ -22,7 +22,7 @@ const SeparateCategoryRoom = () => {
     <div>
       <div className="container mx-auto py-10">
         <div className="text-center text-5xl ">
-          <h2 className="text-[#00b359] font-bold ">{`Our ${category} Brand Car Collection`}</h2>
+          <h2 className="text-[#00b359] font-bold ">{`Our ${category}   Collection`}</h2>
           <p className="border-b-4 w-2/4 relative left-[25%] mt-3 border-black"></p>
           <button
             onClick={sortData}

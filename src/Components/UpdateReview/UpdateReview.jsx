@@ -78,7 +78,7 @@ const UpdateReview = () => {
         <div className="absolute top-0 left-0 w-full h-[320%] md:h-[160%] lg:h-[100%] bg-black opacity-80"></div>
         <div className="absolute top-[170%] md:top-[80%] lg:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-1">
           <h1 className="text-xl lg:text-5xl font-bold mb-5 text-[#00ffcc] uppercase pt-5">
-            Add Brand New Cars Here
+            Add Review Here
           </h1>
           {/* form  */}
           <div className="card flex-shrink-0 w-screen lg:w-full shadow-2xl">
@@ -143,7 +143,7 @@ const UpdateReview = () => {
               </div>
 
               <div className="form-control mt-6 pb-10">
-                <button className="btn btn-primary text-2xl">ADD CAR</button>
+                <button className="btn btn-primary text-2xl">ADD Review</button>
               </div>
             </form>
           </div>

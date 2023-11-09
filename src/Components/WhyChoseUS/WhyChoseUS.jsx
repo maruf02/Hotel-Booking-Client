@@ -8,7 +8,7 @@ const WhyChoseUS = () => {
           Why Choose Us
         </p>
         <h2 className="text-center font-display text-3xl font-bold tracking-tight text-lime-500 md:text-4xl">
-          Discover why Our CarShowroom stands out
+          Discover why Our HotelRoom stands out
         </h2>
       </div>
       <div className="container mx-auto max-w-5xl grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 items-start justify-center md:justify-between">
@@ -25,10 +25,45 @@ const WhyChoseUS = () => {
               <path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"></path>
             </svg>
           </div>
-          <h3 className="text-3xl font-bold">Safety-Firs</h3>
+          <h3 className="text-3xl font-bold">Best Price</h3>
+          <p>Assure users that will find the best prices on Hotel Section</p>
+        </div>
+        <div className="grid gap-4 justify-items-center text-center md:flex-1">
+          <div className=" rounded-full border-8 border-amber-400 p-4 ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-14 h-14"
+            >
+              <path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"></path>
+            </svg>
+          </div>
+          <h3 className="text-3xl font-bold">User-Friendly</h3>
           <p>
-            We prioritize your safety with vehicles equipped with advanced
-            safety features.
+            Emphasize a simple and intuitive booking process to make
+            reservations hassle-free
+          </p>
+        </div>
+        <div className="grid gap-4 justify-items-center text-center md:flex-1">
+          <div className=" rounded-full border-8 border-amber-400 p-4 ">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth="1.5"
+              stroke="currentColor"
+              className="w-14 h-14"
+            >
+              <path d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path>
+            </svg>
+          </div>
+          <h3 className="text-3xl font-bold">Customer Reviews</h3>
+          <p>
+            Include genuine reviews and testimonials from previous guests to
+            build trust.
           </p>
         </div>
         <div className="grid gap-4 justify-items-center text-center md:flex-1">
@@ -44,25 +79,10 @@ const WhyChoseUS = () => {
               <path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"></path>
             </svg>
           </div>
-          <h3 className="text-3xl font-bold">Efficient</h3>
-          <p>Feel good about your wallet and the environment</p>
-        </div>
-        <div className="grid gap-4 justify-items-center text-center md:flex-1">
-          <div className=" rounded-full border-8 border-amber-400 p-4 ">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-14 h-14"
-            >
-              <path d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path>
-            </svg>
-          </div>
-          <h3 className="text-3xl font-bold">Insurance</h3>
+          <h3 className="text-3xl font-bold">24/7 Customer Support</h3>
           <p>
-            Enjoy exclusive insurance packages through trusted partnerships.
+            Assure users of round-the-clock customer support for any queries or
+            assistance
           </p>
         </div>
         <div className="grid gap-4 justify-items-center text-center md:flex-1">
@@ -75,27 +95,14 @@ const WhyChoseUS = () => {
               stroke="currentColor"
               className="w-14 h-14"
             >
-              <path d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"></path>
-            </svg>
-          </div>
-          <h3 className="text-3xl font-bold">24/7 Response</h3>
-          <p>24/7 access to emergency services ensures you're never alone.</p>
-        </div>
-        <div className="grid gap-4 justify-items-center text-center md:flex-1">
-          <div className=" rounded-full border-8 border-amber-400 p-4 ">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              className="w-14 h-14"
-            >
               <path d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"></path>
             </svg>
           </div>
-          <h3 className="text-3xl font-bold">Security </h3>
-          <p>Many vehicles feature advanced security systems.</p>
+          <h3 className="text-3xl font-bold">Secure Booking Payments </h3>
+          <p>
+            Ensure a secure and encrypted booking process to protect users'
+            personal and financial information.
+          </p>
         </div>
         <div className="grid gap-4 justify-items-center text-center md:flex-1">
           <div className=" rounded-full border-8 border-amber-400 p-4 ">
@@ -110,8 +117,11 @@ const WhyChoseUS = () => {
               <path d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z"></path>
             </svg>
           </div>
-          <h3 className="text-3xl font-bold">Road Assist</h3>
-          <p>Our program offers help during unexpected vehicle issues.</p>
+          <h3 className="text-3xl font-bold">Social Responsibility</h3>
+          <p>
+            Showcase any eco-friendly initiatives or social responsibility
+            programs implemented by Our Resort.
+          </p>
         </div>
       </div>
     </div>
