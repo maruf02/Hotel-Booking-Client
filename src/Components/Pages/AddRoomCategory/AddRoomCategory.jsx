@@ -12,7 +12,8 @@ const AddRoomCategory = () => {
     const Category = { CategoryName, image, price };
     // console.log(Brand);
 
-    fetch("http://localhost:5000/roomCategory", {
+    fetch("https://b8-a11-hotel-booking-server.vercel.app/mongoRoomCategory", {
+      // fetch("http://localhost:5001/mongooseRoomCategory", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -22,11 +23,11 @@ const AddRoomCategory = () => {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data);
-        if (data.insertedId) {
+        console.log(data);
+        if (data.insertedId || data._id) {
           Swal.fire({
             title: "Success!",
-            text: "Brand Name & Image Insert Successfully",
+            text: " Insert Successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
@@ -64,7 +65,7 @@ const AddRoomCategory = () => {
                 <input
                   type="text"
                   name="image"
-                  placeholder="Enter Car Image URL here"
+                  placeholder="Enter  Image URL here"
                   required
                   className="input input-bordered input-primary w-full bg-transparent text-lg "
                 />
@@ -79,7 +80,7 @@ const AddRoomCategory = () => {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Enter Car Model Name here"
+                    placeholder="Enter Room Category Name here"
                     required
                     className="input input-bordered input-secondary  w-full bg-transparent text-lg"
                   />

@@ -9,11 +9,11 @@ const AddCategoryWiseRoom = () => {
   const [allBrands, setAllBrands] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/roomCategory")
+    fetch("https://b8-a11-hotel-booking-server.vercel.app/roomCategory")
       .then((res) => res.json())
       .then((data) => setAllBrands(data));
   }, []);
-  const handleAddCar = (event) => {
+  const handleAdd = (event) => {
     event.preventDefault();
     const form = event.target;
     const image = form.image.value;
@@ -49,7 +49,7 @@ const AddCategoryWiseRoom = () => {
     // form.price.value = "";
     // form.description.value = "";
 
-    fetch("http://localhost:5000/allRooms", {
+    fetch("https://b8-a11-hotel-booking-server.vercel.app/allRooms", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -63,7 +63,7 @@ const AddCategoryWiseRoom = () => {
         if (data.insertedId) {
           Swal.fire({
             title: "Success!",
-            text: "Brand Name & Image Insert Successfully",
+            text: "Category Insert Successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
@@ -99,8 +99,8 @@ const AddCategoryWiseRoom = () => {
             Add New Rooms Here
           </h1>
           {/* form  */}
-          <div className="card flex-shrink-0 w-screen lg:w-full  shadow-2xl ">
-            <form onSubmit={handleAddCar} className="card-body ">
+          <div className="d flex-shrink-0 w-screen lg:w-full  shadow-2xl ">
+            <form onSubmit={handleAdd} className="d-body ">
               <div className="form-control">
                 <label className="label">
                   <span className="label-text text-[#00ffcc] text-xl">
@@ -110,7 +110,7 @@ const AddCategoryWiseRoom = () => {
                 <input
                   type="text"
                   name="image"
-                  placeholder="Enter Car Image URL here"
+                  placeholder="Enter  Image URL here"
                   required
                   className="input input-bordered input-primary w-full bg-transparent text-lg "
                 />
@@ -124,7 +124,7 @@ const AddCategoryWiseRoom = () => {
                 <input
                   type="text"
                   name="image1"
-                  placeholder="Enter Car Image URL here"
+                  placeholder="Enter  Image URL here"
                   required
                   className="input input-bordered input-primary w-full bg-transparent text-lg "
                 />
@@ -138,7 +138,7 @@ const AddCategoryWiseRoom = () => {
                 <input
                   type="text"
                   name="image2"
-                  placeholder="Enter Car Image URL here"
+                  placeholder="Enter  Image URL here"
                   required
                   className="input input-bordered input-primary w-full bg-transparent text-lg "
                 />
@@ -152,7 +152,7 @@ const AddCategoryWiseRoom = () => {
                 <input
                   type="text"
                   name="image3"
-                  placeholder="Enter Car Image URL here"
+                  placeholder="Enter  Image URL here"
                   required
                   className="input input-bordered input-primary w-full bg-transparent text-lg "
                 />
@@ -166,7 +166,7 @@ const AddCategoryWiseRoom = () => {
                 <input
                   type="text"
                   name="image4"
-                  placeholder="Enter Car Image URL here"
+                  placeholder="Enter  Image URL here"
                   required
                   className="input input-bordered input-primary w-full bg-transparent text-lg "
                 />
@@ -193,7 +193,7 @@ const AddCategoryWiseRoom = () => {
                     onChange={handleBrandChange}
                   >
                     <option value="" disabled>
-                      Choose Car Brand
+                      Choose
                     </option>
                     {allBrands.map((brand) => (
                       <option key={brand._id} value={brand.CategoryName}>
@@ -211,7 +211,7 @@ const AddCategoryWiseRoom = () => {
                   <input
                     type="text"
                     name="price"
-                    placeholder="Enter Car Model Name here"
+                    placeholder="Enter  Price here"
                     required
                     className="input input-bordered input-secondary  w-full bg-transparent text-lg"
                   />
@@ -274,7 +274,7 @@ const AddCategoryWiseRoom = () => {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Enter Car Model Name here"
+                    placeholder="Enter  Room Number here"
                     required
                     className="input input-bordered input-secondary  w-full bg-transparent text-lg"
                   />

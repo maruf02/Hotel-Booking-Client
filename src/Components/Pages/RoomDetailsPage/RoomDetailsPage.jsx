@@ -52,7 +52,7 @@ const RoomDetailsPage = () => {
     },
   ];
   useEffect(() => {
-    fetch(`http://localhost:5000/review/${_id}`)
+    fetch(`https://b8-a11-hotel-booking-server.vercel.app/review/${_id}`)
       .then((res) => res.json())
       .then((data) => setReviews(data));
   }, []);
@@ -72,7 +72,7 @@ const RoomDetailsPage = () => {
 
     // **************************************************
 
-    // fetch(`http://localhost:5000/review/${roomId}`, {
+    // fetch(`https://b8-a11-hotel-booking-server.vercel.app/review/${roomId}`, {
     //   method: "GET",
     //   headers: {
     //     "content-type": "application/json",
@@ -83,7 +83,7 @@ const RoomDetailsPage = () => {
     //   .then((data) => setReviews(data));
     // console.log("sd", reviews.length);
     // *****************************************
-    fetch(`http://localhost:5000/allRooms/${_id}`, {
+    fetch(`https://b8-a11-hotel-booking-server.vercel.app/allRooms/${_id}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",

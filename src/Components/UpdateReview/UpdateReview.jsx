@@ -36,14 +36,17 @@ const UpdateReview = () => {
     // let dateDiff = date3.diff(date4, "days");
     // console.log(dateDiff);
 
-    fetch(`http://localhost:5000/Cart/${userName}/${_id}`, {
-      method: "PATCH",
-      headers: {
-        "content-type": "application/json",
-      },
-      body: JSON.stringify(updateBrand),
-      credentials: "include",
-    })
+    fetch(
+      `https://b8-a11-hotel-booking-server.vercel.app/Cart/${userName}/${_id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(updateBrand),
+        credentials: "include",
+      }
+    )
       .then((res) => res.json())
       .then((data) => {
         // console.log(data);
@@ -51,7 +54,7 @@ const UpdateReview = () => {
         if (data.modifiedCount > 0) {
           Swal.fire({
             title: "Success!",
-            text: "Brand Name & Image Insert Successfully",
+            text: "Update Successfully",
             icon: "success",
             confirmButtonText: "Cool",
           });
@@ -78,7 +81,7 @@ const UpdateReview = () => {
         <div className="absolute top-0 left-0 w-full h-[320%] md:h-[160%] lg:h-[100%] bg-black opacity-80"></div>
         <div className="absolute top-[170%] md:top-[80%] lg:top-[50%] left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white z-1">
           <h1 className="text-xl lg:text-5xl font-bold mb-5 text-[#00ffcc] uppercase pt-5">
-            Add Review Here
+            Update Info Here
           </h1>
           {/* form  */}
           <div className="card flex-shrink-0 w-screen lg:w-full shadow-2xl">
@@ -143,7 +146,7 @@ const UpdateReview = () => {
               </div>
 
               <div className="form-control mt-6 pb-10">
-                <button className="btn btn-primary text-2xl">ADD Review</button>
+                <button className="btn btn-primary text-2xl">Update</button>
               </div>
             </form>
           </div>

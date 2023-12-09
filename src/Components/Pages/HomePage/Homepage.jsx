@@ -46,10 +46,18 @@ const Homepage = () => {
       >
         <OurFeature></OurFeature>
       </div>
-      <div>
+      <div
+        data-aos="fade-down"
+        data-aos-duration="3000"
+        className="container mx-auto"
+      >
         <ImageGallery></ImageGallery>
       </div>
-      <div>
+      <div
+        data-aos="fade-down"
+        data-aos-duration="3000"
+        className="container mx-auto"
+      >
         <ContactUS></ContactUS>
       </div>
     </div>

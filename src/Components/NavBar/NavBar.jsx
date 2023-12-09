@@ -107,11 +107,11 @@ const NavBar = () => {
                       <button>Add Categories Room</button>
                     </Link>
                   </li>
-                  <li>
+                  {/* <li>
                     <Link>
                       <button>View Room Category</button>
                     </Link>
-                  </li>
+                  </li> */}
                   <li>
                     <Link>
                       <button onClick={handleSignOut}>Logout</button>

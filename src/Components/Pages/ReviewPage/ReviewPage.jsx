@@ -32,7 +32,7 @@ const ReviewPage = () => {
     };
     // console.log(Brand);
 
-    fetch("http://localhost:5000/review", {
+    fetch("https://b8-a11-hotel-booking-server.vercel.app/review", {
       method: "POST",
       headers: {
         "content-type": "application/json",

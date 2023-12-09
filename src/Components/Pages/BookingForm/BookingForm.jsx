@@ -44,7 +44,7 @@ const BookingForm = () => {
       name,
     };
     console.log(userName);
-    fetch("http://localhost:5000/Cart", {
+    fetch("https://b8-a11-hotel-booking-server.vercel.app/Cart", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -55,13 +55,16 @@ const BookingForm = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.insertedId) {
-          fetch(`http://localhost:5000/allRooms/${_id}`, {
-            method: "GET",
-            headers: {
-              "content-type": "application/json",
-            },
-            credentials: "include",
-          })
+          fetch(
+            `https://b8-a11-hotel-booking-server.vercel.app/allRooms/${_id}`,
+            {
+              method: "GET",
+              headers: {
+                "content-type": "application/json",
+              },
+              credentials: "include",
+            }
+          )
             .then((res) => res.json())
             .then((data) => {
               if (
@@ -70,17 +73,20 @@ const BookingForm = () => {
                   availability === "YES") &&
                 seatNum > 1
               ) {
-                fetch(`http://localhost:5000/allRooms/${_id}`, {
-                  method: "PATCH",
-                  headers: {
-                    "content-type": "application/json",
-                  },
-                  body: JSON.stringify({
-                    availability: "YES",
-                    seatNum: newSeatNum,
-                  }),
-                  credentials: "include",
-                })
+                fetch(
+                  `https://b8-a11-hotel-booking-server.vercel.app/allRooms/${_id}`,
+                  {
+                    method: "PATCH",
+                    headers: {
+                      "content-type": "application/json",
+                    },
+                    body: JSON.stringify({
+                      availability: "YES",
+                      seatNum: newSeatNum,
+                    }),
+                    credentials: "include",
+                  }
+                )
                   .then((res) => res.json())
                   .then((updateResult) => {
                     if (updateResult.modifiedCount > 0) {
@@ -97,17 +103,20 @@ const BookingForm = () => {
                 availability === "YES"
               ) {
                 // Condition 2: Availability is "YES" but seatNum is 0
-                fetch(`http://localhost:5000/allRooms/${_id}`, {
-                  method: "PATCH",
-                  headers: {
-                    "content-type": "application/json",
-                  },
-                  body: JSON.stringify({
-                    availability: "NO",
-                    seatNum: 0,
-                  }),
-                  credentials: "include",
-                })
+                fetch(
+                  `https://b8-a11-hotel-booking-server.vercel.app/allRooms/${_id}`,
+                  {
+                    method: "PATCH",
+                    headers: {
+                      "content-type": "application/json",
+                    },
+                    body: JSON.stringify({
+                      availability: "NO",
+                      seatNum: 0,
+                    }),
+                    credentials: "include",
+                  }
+                )
                   .then((res) => res.json())
                   .then((updateResult) => {
                     if (updateResult.modifiedCount > 0) {

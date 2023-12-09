@@ -11,7 +11,7 @@ const ContactUS = () => {
     const phone = form.phone.value;
     const description = form.description.value;
 
-    const Brand = {};
+    const Brand = { email, name, phone, description };
     console.log(Brand);
 
     // form.image.value = "";
@@ -21,7 +21,7 @@ const ContactUS = () => {
     // form.price.value = "";
     // form.description.value = "";
 
-    fetch("http://localhost:5000/message", {
+    fetch("https://b8-a11-hotel-booking-server.vercel.app/message", {
       method: "POST",
       headers: {
         "content-type": "application/json",
@@ -77,7 +77,7 @@ const ContactUS = () => {
                 <input
                   type="email"
                   name="email"
-                  placeholder="Enter Car Image URL here"
+                  placeholder="Enter  Email here"
                   required
                   className="input input-bordered input-primary w-full bg-transparent text-lg "
                 />
@@ -92,7 +92,7 @@ const ContactUS = () => {
                   <input
                     type="text"
                     name="name"
-                    placeholder="Enter Car Model Name here"
+                    placeholder="Enter  Name here"
                     required
                     className="input input-bordered input-secondary  w-full bg-transparent text-lg"
                   />
@@ -106,7 +106,7 @@ const ContactUS = () => {
                   <input
                     type="text"
                     name="phone"
-                    placeholder="Enter Price here"
+                    placeholder="Enter Phone Number here"
                     required
                     className="input input-bordered input-success w-full bg-transparent text-lg"
                   />
@@ -123,7 +123,7 @@ const ContactUS = () => {
                     name="description"
                     required
                     className="textarea textarea-info text-lg"
-                    placeholder="Enter Short Description here"
+                    placeholder="Enter Message here"
                   ></textarea>
                 </div>
               </div>

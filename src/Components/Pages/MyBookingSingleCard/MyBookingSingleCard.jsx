@@ -41,7 +41,7 @@ const MyBookingSingleCard = ({ cart, handleDelete }) => {
   //       confirmButtonText: "Yes, delete it!",
   //     }).then((result) => {
   //       if (result.isConfirmed) {
-  //         fetch(`http://localhost:5000/Cart/${id}`, {
+  //         fetch(`https://b8-a11-hotel-booking-server.vercel.app/Cart/${id}`, {
   //           method: "DELETE",
   //           credentials: "include",
   //         })

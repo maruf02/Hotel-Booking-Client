@@ -2,7 +2,7 @@
 
 # Hotel Booking System: This project base on Mern Stack with JWT.
 
-# Live Link: https://hotelbooking-client.web.app/
+# Live Link: https://hotelbook-system.web.app/
 
 Here is the Important Features of this project:
 

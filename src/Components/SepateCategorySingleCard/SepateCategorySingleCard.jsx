@@ -9,7 +9,7 @@ const SepateCategorySingleCard = ({ car }) => {
     event.preventDefault();
     // console.log("button click");
 
-    fetch(`http://localhost:5000/allRooms/${_id}`, {
+    fetch(`https://b8-a11-hotel-booking-server.vercel.app/allRooms/${_id}`, {
       method: "GET",
       headers: {
         "content-type": "application/json",
