@@ -12,3 +12,9 @@ Here is the Important Features of this project:
 - you can add your chosen product in your Cart, That you can see anything from your cart option. Also you can Delete product from your cart
 - Also this project use mongo db that effective data loading time and fetch more quicker.
 - More update will come soon, Be patient and see the More functionality.
+
+## Update Info v1:
+
+- Add Image gallery with all rooms.
+- Add JWT Token verify for client side and server side both
+- Add JWT set cookie.
